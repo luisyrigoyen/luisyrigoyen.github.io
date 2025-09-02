@@ -29,21 +29,21 @@
          <textarea id="translated-message" placeholder="Translated Message will appear here..." readonly></textarea>
 
          <!--Copy Button-->
-         <button id="copy-button" onclick="copyToClipboard()" style="display:none;"> Copy </button>
+         <button id="copy-button" onclick="copyToClipboard()" style="display:none;">Copy</button>
          
          <script>
                 function translateMessage() {
                     const inputText = document.getElementById('input-message').value;
                     const targetLang = document.getElementById('language-select').value;
-                    const outputBox = document.getElementById('translated-message').value;
-                    const copyButton = document.getElementById('copy-button').value;
+                    const outputBox = document.getElementById('translated-message');
+                    const copyButton = document.getElementById('copy-button');
 
                     if (!inputText) {
                         alert('Please enter a messsage to translate');
                         return;
                     }
                 
-                
+                const apiUrl = "https://translation.googleapis.com/language/translate/v2?key=AIzaSyB0tuoIF-I1xLh3r5Q1vBdD59D0BsSj41c";
 
                 fetch(apiUrl, {
                     method: 'POST',
