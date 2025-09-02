@@ -10,7 +10,7 @@
         <h2>Translation Tool</h2>
 
         <!--User message to be translated -->
-        <textarea id="input-message" placeholder="Enter your message here6..."></textarea>
+        <textarea id="input-message" placeholder="Enter your message here7..."></textarea>
 
         <!-- Language Selection & Button -->
          <div>
@@ -47,8 +47,8 @@
 
                 fetch(apiUrl, {
                     method: 'POST',
-                    headers: { 'Content-Type':'application/json; charset=utf-8'},
-                    body: JSON.stringify([{ "q": inputText, "target": targetLang}])
+                    headers: { 'Content-Type':'application/json'},
+                    body: JSON.stringify([{ q: inputText, target: targetLang}])
                 })
                 .then(response => response.json())
                 .then(data => {
