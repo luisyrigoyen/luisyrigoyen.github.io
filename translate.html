@@ -10,7 +10,7 @@
         <h2>Translation Tool</h2>
 
         <!--User message to be translated -->
-        <textarea id="input-message" placeholder="Enter your message here6..."></textarea>
+        <textarea id="input-message" placeholder="Enter your message here7..."></textarea>
 
         <!-- Language Selection & Button -->
          <div>
@@ -52,14 +52,20 @@
                     body: JSON.stringify({ q: inputText, target: targetLang})
                 })
                 .then(response => response.json())
-                .then(data => {
-                    if (data && data.translations[0]) {
-                        outputBox.value = data.translations[0].translatedText;
-                        copyButton.style.display = 'inline'; // shows the Copy Button after translattion
-                    } else {
-                      outputBox.value = 'Error. this is from the if statement';
-                    }    
-                })
+                .then(transMsg => 
+                {
+                    const translatedMessage = transMsg.data.translations[0].translatedText;
+                    outputBox.value = translateMessage;
+                    copyButton.style.display = 'inline'; // shows the Copy Button after translattion
+                    //if (data && data.translations[0]) {
+                      //  outputBox.value = data.translations[0].translatedText;
+                      //  copyButton.style.display = 'inline'; // shows the Copy Button after translattion
+                    //} else {
+                    //  outputBox.value = 'Error. this is from the if statement';
+                    //}    
+
+                }
+                )
                 .catch(error => {
                     console.error('Translation error:', error);
                     outputBox.value = 'this is from the catch ERROR';
