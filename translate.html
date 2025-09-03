@@ -10,7 +10,7 @@
         <h2>Translation Tool</h2>
 
         <!--User message to be translated -->
-        <textarea id="input-message" placeholder="Enter your message here5..."></textarea>
+        <textarea id="input-message" placeholder="Enter your message here6..."></textarea>
 
         <!-- Language Selection & Button -->
          <div>
@@ -53,7 +53,7 @@
                 })
                 .then(response => response.json())
                 .then(data => {
-                    if (data && data.translations) {
+                    if (data && data.translations[0]) {
                         outputBox.value = data.translations[0].translatedText;
                         copyButton.style.display = 'inline'; // shows the Copy Button after translattion
                     } else {
