@@ -10,7 +10,7 @@
         <h2>Translation Tool</h2>
 
         <!--User message to be translated -->
-        <textarea id="input-message" placeholder="Enter your message here8..."></textarea>
+        <textarea id="input-message" placeholder="Enter your message here1..."></textarea>
 
         <!-- Language Selection & Button -->
          <div>
@@ -43,12 +43,13 @@
                         return;
                     }
                 
-         
+                const apiUrl = 'https://translation.googleapis.com/language/translate/v2?key=AIzaSyB0tuoIF-I1xLh3r5Q1vBdD59D0BsSj41c';
 
-                fetch(apiUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type':'application/json'},
-                    body: JSON.stringify([{ q: inputText, target: targetLang}])
+                fetch(apiUrl, 
+                {
+                    method: "POST",
+                    headers: { "Content-Type":"application/json"},
+                    body: JSON.stringify({ q: inputText, target: targetLang})
                 })
                 .then(response => response.json())
                 .then(data => {
@@ -64,11 +65,12 @@
                     outputBox.value = 'Translation failed. Try Again.';
                 });
             }
-         function copyToClipboard(){
-            const outputBox = document.getElementById('translated-message');
-            outputBox.select(); //Select the translated text
-            document.execCommand('copy'); //Copy the selected text to clipboard
-         }
+            //Copy to clipboard function
+                function copyToClipboard(){
+                const outputBox = document.getElementById('translated-message');
+                outputBox.select(); //Select the translated text
+                document.execCommand('copy'); //Copy the selected text to clipboard
+            }
          </script>
 
     </body>
